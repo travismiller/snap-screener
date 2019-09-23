@@ -1,0 +1,129 @@
+{
+  "translation": {
+    "Address (include apt # if applicable)":
+    "~Address (include apt # if applicable)~",
+
+    "City":
+    "~City~",
+
+    "State":
+    "~State~",
+
+    "Phone Number":
+    "~Phone Number~",
+
+    "Email Address":
+    "~Email Address~",
+
+    "I prefer to be contacted by:":
+    "~I prefer to be contacted by:~",
+
+    "Email":
+    "~Email~",
+
+    "Phone":
+    "~Phone~",
+
+    "Text Message":
+    "~Text Message~",
+
+    "Special thanks to Tulsa Public Schools for their support and partnership on this project. The Supplemental Nutrition Assistance Program (SNAP) is a federal program, administered by the office of the Oklahoma Department of Human Services (OKDHS). For mor information about OKDHS, visit <1>okdhs.org</1> or call (877) 751-2972.":
+    "Un agradecimiento especial a las Escuelas Públicas de Tulsa por su apoyo y colaboración en este proyecto. El Programa de Asistencia Nutricional Suplementaria (SNAP) es un programa federal, administrado por la oficina del Departamento de Servicios Humanos de Oklahoma (OKDHS). Para obtener más información sobre OKDHS, visite <1>okdhs.org</1> o llame al (877) 751-2972.",
+
+    "Tell us some information about the members of your family.":
+    "Cuéntanos algo sobre los miembros de tu familia.",
+
+    "Who is the head of your household?":
+    "¿Quién es el jefe de tu hogar?",
+
+    "Does the head of household have a Social Security Number?":
+    "~Does the head of household have a Social Security Number?~",
+
+    "Yes": "~Yes~",
+
+    "No": "~No~",
+
+    "I prefer not to answer": "~I prefer not to answer~",
+
+    "What is your household income?":
+    "~What is your household income?~",
+
+    "Year": "Año",
+    "Month": "Mes",
+    "Week": "Semana",
+    "2 weeks": "2 semanas",
+
+    "How many adults live in your home? <1>(total adults in the home 18+ including you)</1>":
+    "¿Cuántos adultos viven en tu casa? <1>(total de adultos en el hogar mayores de 18 años, incluido usted)</1>",
+
+    "How many adults <1>over the age of 60</1> live in your home?":
+    "~How many adults <1>over the age of 60</1> live in your home?~",
+
+    "How many children <1>under the age of 18</1> live in your home?":
+    "~How many children <1>under the age of 18</1> live in your home?~",
+
+    "Let us know how we can get in touch with you.":
+    "Háganos saber cómo podemos ponernos en contacto con usted.",
+
+    "Please select the school your child attends:":
+    "~Please select the school your child attends:~",
+
+    "Next": "Próximo",
+    "Previous": "Anterior",
+    "Submit": "Enviar",
+
+    "Find out if you are eligible for food assistance.":
+    "Averigüe si es elegible para recibir asistencia alimentaria.",
+
+    "We will connect you with a Tulsa Public Schools representative who will…":
+    "Lo conectaremos con un representante de las Escuelas Públicas de Tulsa que ...",
+
+    "Get Started":
+    "Empezar",
+
+    "You may be eligible to receive SNAP benefits!":
+    "~You may be eligible to receive SNAP benefits!~",
+
+    "Based on the information you provided you and your family may be eligible to receive SNAP benefits.":
+    "~Based on the information you provided you and your family may be eligible to receive SNAP benefits.~",
+
+    "Who will contact you?":
+    "~Who will contact you?~",
+
+    "You will be contacted by a SNAP trained school staff member within three business days to assist you with the SNAP application.":
+    "~You will be contacted by a SNAP trained school staff member within three business days to assist you with the SNAP application.~",
+
+    "Information you will need when applying for SNAP benefits:":
+    "~Information you will need when applying for SNAP benefits:~",
+
+    "All household members: name, date of birth, social security number (if available)":
+    "~All household members: name, date of birth, social security number (if available)~",
+
+    "Income (if applicable): paycheck stubs, child support, alimony, social security payments, etc.":
+    "~Income (if applicable): paycheck stubs, child support, alimony, social security payments, etc.~",
+
+    "Expenses: housing and utility expenses":
+    "~Expenses: housing and utility expenses~",
+
+    "Utility bills to verify residency":
+    "~Utility bills to verify residency~",
+
+    "Private health insurance information":
+    "~Private health insurance information~",
+
+    "Apply Online":
+    "~Apply Online~",
+
+    "You may <1>not</1> be eligible to receive SNAP benefits!":
+    "~You may <1>not</1> be eligible to receive SNAP benefits!~",
+
+    "Based on the information you provided you and your family may not be eligible to receive SNAP benefits. Please know there are additional resources available to assist you and your family.":
+    "~Based on the information you provided you and your family may not be eligible to receive SNAP benefits. Please know there are additional resources available to assist you and your family.~",
+
+    "You will be contacted by a school staff member within three business days to assist you with additional resources.":
+    "~You will be contacted by a school staff member within three business days to assist you with additional resources.~",
+
+    "Additional Resources":
+    "~Additional Resources~"
+  }
+}

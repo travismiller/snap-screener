@@ -1,0 +1,234 @@
+@tailwind base;
+
+html, body, #root, .App {
+  min-height: 100%;
+  min-height: 100vh;
+  min-width: 320px;
+  overflow: auto; /* this is needed when you resize the screen */
+}
+
+html, body {
+  background-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+/* header */
+header {
+  color: #000000;
+}
+header button.active {
+  color: #00ADEE;
+}
+
+.page-light-blue header button.active,
+.page-dark-blue header button.active,
+.page-yellow header button.active {
+  color: #FFFFFF;
+}
+
+.page-dark-blue header {
+  color: #BD202E;
+}
+.page-dark-blue header button.active {
+  color: #FFFFFF;
+}
+
+/* footer */
+footer {
+  @apply text-xs;
+  color: #000000;
+}
+
+/* headers */
+h1, h2, h3 {
+  @apply my-8;
+  @apply font-bold;
+  @apply leading-tight;
+}
+
+h1 {
+  @apply text-4xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+.ruled-headers h1 ,
+.ruled-headers h2 ,
+.ruled-headers h3 {
+  @apply inline-block;
+}
+
+.ruled-headers h1:after ,
+.ruled-headers h2:after ,
+.ruled-headers h3:after {
+  /* https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
+  content: ""; /* This is necessary for the pseudo element to work. */
+  display: block; /* This will put the pseudo element on its own line. */
+  /* margin: 0 auto; */ /* This will center the border. */
+  width: 50%; /* Change this to whatever width you want. */
+  padding-top: 20px; /* This creates some space between the element and the border. */
+  border-bottom: 1px solid #BD202E; /* This creates the border. Replace black with whatever color you want. */
+}
+
+
+.page-dark-blue h1 ,
+.page-dark-blue h2 ,
+.page-dark-blue h3 {
+  color: #00ADEE;
+  position: relative;
+}
+
+a {
+  @apply text-blue-600;
+  @apply underline;
+}
+
+.btn {
+  @apply text-white;
+  @apply font-bold;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+  @apply no-underline;
+  @apply inline-block;
+
+  min-width: 16rem;
+
+  background-color: #BD202E;
+}
+
+.btn:hover {
+  background-color: #680F16;
+}
+
+.page-yellow {
+    background-color: #FAAF41;
+}
+
+.page-yellow .btn {
+    background-color: #00ADEE;
+}
+
+.page-yellow .btn:hover {
+    background-color: #2E368F;
+}
+
+
+/* form */
+.page-light-blue {
+  background-color: #00ADEE;
+}
+
+.page-light-blue .btn {
+  background-color: #FAAF41;
+}
+
+.page-light-blue .btn:hover {
+  background-color: #BD7408;
+}
+
+/* eligible */
+.page-dark-blue {
+  background-color: #2E368F;
+  color: #FFFFFF;
+}
+
+p, dl, ol, ul {
+  @apply my-4;
+}
+
+ul {
+  @apply list-disc;
+  @apply list-inside;
+}
+
+aside .btn {
+  /* @apply mx-0; */
+  @apply inline-block;
+  @apply mt-8;
+  @apply text-center;
+}
+aside a {
+  @apply no-underline;
+  @apply text-white;
+}
+
+@screen lg {
+  aside .btn {
+    @apply block;
+    @apply text-center;
+    @apply w-full;
+  }
+}
+
+form {
+  color: #2E368F;
+}
+
+
+
+form .btn {
+  @apply m-4;
+}
+
+form .buttons {
+  @apply my-8;
+}
+
+form label {
+  @apply m-4;
+}
+
+form select {
+  /* @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight; */
+  /* focus:outline-none focus:bg-white focus:border-gray-500 */
+  @apply appearance-none;
+}
+
+form select:focus {
+  @apply outline-none;
+}
+
+form input,
+form select,
+form textarea {
+  @apply bg-transparent;
+  @apply border-b;
+
+  border-color: #2E368F;
+}
+
+.address {
+  @apply mx-auto;
+  @apply max-w-xl;
+}
+
+.address label {
+  @apply mt-0;
+  @apply ml-0;
+}
+
+.input-preview {
+  @apply absolute;
+  @apply bottom-0;
+}
+
+pre,
+code {
+  @apply text-xs;
+  @apply text-left;
+  @apply text-xs;
+  @apply text-gray-400;
+}
+
+@tailwind components;
+
+@tailwind utilities;
+
