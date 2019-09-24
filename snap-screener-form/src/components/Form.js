@@ -1,15 +1,15 @@
-/* eslint jsx-a11y/accessible-emoji: 0 */
-
 import React from 'react'
 import { Field } from 'react-final-form'
 import { withTranslation, Trans } from 'react-i18next';
 
 import Address from './Address'
 import Wizard from './Wizard'
+import FiveNumberedRadioFields from './FiveNumberedRadioFields'
+import { Error, required } from './Error'
 
 import { default as schools } from '../data/schools'
 
-// const required = value => (value ? undefined : 'Required')
+// const required = value => (value ? undefined : <Trans>Required</Trans>)
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -19,21 +19,26 @@ const onSubmit = async values => {
   window.alert(JSON.stringify(values, 0, 2))
 }
 
-const Error = ({ name }) => (
-  <Field
-    name={name}
-    subscribe={{ touched: true, error: true }}
-    render={({ meta: { touched, error } }) =>
-      touched && error ? <span>{error}</span> : null
-    }
-  />
-)
+// const Error = ({ name }) => (
+//   <Field
+//     name={name}
+//     subscribe={{ touched: true, error: true }}
+//     render={({ meta: { touched, error } }) =>
+//       touched && error ? <span className="error">{error}</span> : null
+//     }
+//   />
+// )
 
 const Form = ({ t }) => (
   <Wizard
     initialValues={{}}
     onSubmit={onSubmit}
-  >
+    showInputPreview={false}
+    showPrevious={true}
+    previousText={<span>« <Trans>Previous</Trans></span>}
+    nextText={<span><Trans>Next</Trans></span>}
+    submitText={<Trans>Submit</Trans>}
+    >
     <Wizard.Page>
       <div>
         <h2><Trans>Tell us some information about the members of your family.</Trans></h2>
@@ -46,9 +51,8 @@ const Form = ({ t }) => (
             name="hoh.name"
             component="input"
             type="text"
-            placeholder=""
+            validate={required}
             autoFocus
-            // validate={required}
           />
         </div>
         <Error name="hoh.name" />
@@ -58,35 +62,49 @@ const Form = ({ t }) => (
     <Wizard.Page>
       <div>
         <h2><Trans>Does the head of household have a Social Security Number?</Trans></h2>
-        <label>
+
+        <div className="pretty p-default p-round">
           <Field
             name="hoh.has_ssn"
             component="input"
             type="radio"
             value="yes"
-          />{' '}
-          <Trans>Yes</Trans>
-        </label>
+            validate={required}
+          />
+          <div className="state">
+            <label><Trans>Yes</Trans></label>
+          </div>
+        </div>
 
-        <label>
+        <div className="pretty p-default p-round">
           <Field
             name="hoh.has_ssn"
             component="input"
             type="radio"
             value="no"
-          />{' '}
-          <Trans>No</Trans>
-        </label>
+            validate={required}
+          />
+          <div className="state">
+            <label><Trans>No</Trans></label>
+          </div>
+        </div>
 
-        <label>
+        <div className="pretty p-default p-round">
           <Field
             name="hoh.has_ssn"
             component="input"
             type="radio"
             value="decline"
-          />{' '}
-          <Trans>I prefer not to answer</Trans>
-        </label>
+            validate={required}
+          />
+          <div className="state">
+            <label><Trans>I prefer not to answer</Trans></label>
+          </div>
+        </div>
+
+        <p>
+          <Error name="hoh.has_ssn" />
+        </p>
       </div>
     </Wizard.Page>
 
@@ -98,16 +116,23 @@ const Form = ({ t }) => (
           $<Field
             name="income.amount"
             component="input"
-            type="text"
-            size="6"
-            className="text-right"
+            type="number"
+            className="text-right w-16"
             format={value => (value ? value.replace(/[^\d]/g, '') : '')}
+            pattern="\d*"
+            step="1"
+            validate={required}
             autoFocus
           />.00
           <span className="mx-4">{' '}/{' '}</span>
           <div className="inline-block">
             <div className="relative">
-              <Field name="income.period" component="select" className="w-32">
+              <Field
+                name="income.period"
+                component="select"
+                className="w-32"
+                validate={required}
+              >
                 <option value=""></option>
                 <option value="yearly">{t('Year')}</option>
                 <option value="monthly">{t('Month')}</option>
@@ -120,6 +145,11 @@ const Form = ({ t }) => (
             </div>
           </div>
         </div>
+
+        <p>
+          <Error name="income.amount" />
+          <Error name="income.period" />
+        </p>
       </div>
     </Wizard.Page>
 
@@ -127,55 +157,11 @@ const Form = ({ t }) => (
       <div>
         <h2><Trans>How many adults live in your home? <small>(total adults in the home 18+ including you)</small></Trans></h2>
 
-        <label>
-          <Field
-            name="howManyAdults"
-            component="input"
-            type="radio"
-            value="1"
-          />{' '}
-          1
-        </label>
+        <FiveNumberedRadioFields name="howManyAdults" validate={required} />
 
-        <label>
-          <Field
-            name="howManyAdults"
-            component="input"
-            type="radio"
-            value="2"
-          />{' '}
-          2
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdults"
-            component="input"
-            type="radio"
-            value="3"
-          />{' '}
-          3
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdults"
-            component="input"
-            type="radio"
-            value="4"
-          />{' '}
-          4
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdults"
-            component="input"
-            type="radio"
-            value="5+"
-          />{' '}
-          5+
-        </label>
+        <p>
+          <Error name="howManyAdults" />
+        </p>
       </div>
     </Wizard.Page>
 
@@ -183,55 +169,11 @@ const Form = ({ t }) => (
       <div>
         <h2><Trans>How many adults <u>over the age of 60</u> live in your home?</Trans></h2>
 
-        <label>
-          <Field
-            name="howManyAdultsOver60"
-            component="input"
-            type="radio"
-            value="1"
-          />{' '}
-          1
-        </label>
+        <FiveNumberedRadioFields name="howManyAdultsOver60" validate={required} />
 
-        <label>
-          <Field
-            name="howManyAdultsOver60"
-            component="input"
-            type="radio"
-            value="2"
-          />{' '}
-          2
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdultsOver60"
-            component="input"
-            type="radio"
-            value="3"
-          />{' '}
-          3
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdultsOver60"
-            component="input"
-            type="radio"
-            value="4"
-          />{' '}
-          4
-        </label>
-
-        <label>
-          <Field
-            name="howManyAdultsOver60"
-            component="input"
-            type="radio"
-            value="5+"
-          />{' '}
-          5+
-        </label>
+        <p>
+          <Error name="howManyAdultsOver60" />
+        </p>
       </div>
     </Wizard.Page>
 
@@ -239,55 +181,11 @@ const Form = ({ t }) => (
       <div>
         <h2><Trans>How many children <u>under the age of 18</u> live in your home?</Trans></h2>
 
-        <label>
-          <Field
-            name="howManyChildrenUnder18"
-            component="input"
-            type="radio"
-            value="1"
-          />{' '}
-          1
-        </label>
+        <FiveNumberedRadioFields name="howManyChildrenUnder18" validate={required} />
 
-        <label>
-          <Field
-            name="howManyChildrenUnder18"
-            component="input"
-            type="radio"
-            value="2"
-          />{' '}
-          2
-        </label>
-
-        <label>
-          <Field
-            name="howManyChildrenUnder18"
-            component="input"
-            type="radio"
-            value="3"
-          />{' '}
-          3
-        </label>
-
-        <label>
-          <Field
-            name="howManyChildrenUnder18"
-            component="input"
-            type="radio"
-            value="4"
-          />{' '}
-          4
-        </label>
-
-        <label>
-          <Field
-            name="howManyChildrenUnder18"
-            component="input"
-            type="radio"
-            value="5+"
-          />{' '}
-          5+
-        </label>
+        <p>
+          <Error name="howManyChildrenUnder18" />
+        </p>
       </div>
     </Wizard.Page>
 
@@ -305,15 +203,24 @@ const Form = ({ t }) => (
 
         <div className="inline-block">
           <div className="relative">
-            <Field name="childAttendsSchool" component="select" className="w-64">
-              <option value=""></option>
-              {schools.map((x, i) => <option value={x}>{x}</option> )}
+            <Field
+              name="childAttendsSchool"
+              component="select"
+              className="w-64"
+              validate={required}
+            >
+              <option key="" value=""></option>
+              {schools.map((x, i) => <option key={x} value={x}>{x}</option> )}
             </Field>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
               <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
             </div>
           </div>
         </div>
+
+        <p>
+          <Error name="childAttendsSchool" />
+        </p>
       </div>
     </Wizard.Page>
   </Wizard>

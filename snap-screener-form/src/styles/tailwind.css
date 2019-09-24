@@ -78,6 +78,12 @@ h3 {
 }
 
 
+.page-light-blue h1 ,
+.page-light-blue h2 ,
+.page-light-blue h3 {
+  color: #FFFFFF;
+}
+
 .page-dark-blue h1 ,
 .page-dark-blue h2 ,
 .page-dark-blue h3 {
@@ -99,13 +105,15 @@ a {
   @apply no-underline;
   @apply inline-block;
 
-  min-width: 16rem;
+  min-width: 8rem;
 
   background-color: #BD202E;
 }
 
-.btn:hover {
-  background-color: #680F16;
+@screen md {
+  .btn {
+    min-width: 16rem;
+  }
 }
 
 .page-yellow {
@@ -116,11 +124,6 @@ a {
     background-color: #00ADEE;
 }
 
-.page-yellow .btn:hover {
-    background-color: #2E368F;
-}
-
-
 /* form */
 .page-light-blue {
   background-color: #00ADEE;
@@ -128,10 +131,6 @@ a {
 
 .page-light-blue .btn {
   background-color: #FAAF41;
-}
-
-.page-light-blue .btn:hover {
-  background-color: #BD7408;
 }
 
 /* eligible */
@@ -182,25 +181,28 @@ form .buttons {
   @apply my-8;
 }
 
-form label {
-  @apply m-4;
+form .buttons :disabled {
+  @apply opacity-50;
 }
 
-form select {
-  /* @apply block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight; */
-  /* focus:outline-none focus:bg-white focus:border-gray-500 */
-  @apply appearance-none;
+form label {
+  @apply m-4;
 }
 
 form select:focus {
   @apply outline-none;
 }
 
-form input,
+form input[type=email],
+form input[type=number],
+form input[type=text],
 form select,
 form textarea {
+  @apply appearance-none;
   @apply bg-transparent;
   @apply border-b;
+  @apply rounded-none;
+  @apply p-1;
 
   border-color: #2E368F;
 }
@@ -226,6 +228,80 @@ code {
   @apply text-left;
   @apply text-xs;
   @apply text-gray-400;
+}
+
+.error {
+  @apply italic;
+  color: #BD202E;
+}
+
+@import '~pretty-checkbox/dist/pretty-checkbox.css';
+
+.pretty .state label::before {
+  border-color: #2E368F;
+}
+
+.pretty.p-default input:checked ~ .state label::after {
+  background-color: #2E368F !important;
+}
+
+.numbered {
+  @apply relative;
+  @apply inline-block;
+  @apply m-4;
+
+  height: 4rem;
+  width: 4rem;
+}
+
+.numbered input {
+  @apply cursor-pointer;
+  @apply appearance-none;
+  @apply w-full;
+  @apply h-full;
+  @apply absolute;
+  @apply top-0;
+  @apply left-0;
+  @apply bg-transparent;
+
+  z-index: 2;
+}
+
+
+.numbered .state {
+  @apply rounded-full;
+  @apply w-full;
+  @apply h-full;
+  @apply relative;
+  @apply top-0;
+  @apply left-0;
+
+  background-color: #2E368F;
+  color: #FFFFFF;
+  z-index: 1;
+}
+
+.numbered input:checked ~ .state {
+  background-color: #FFFFFF;
+  color: #2E368F;
+}
+
+.numbered .state label {
+  @apply inline-block;
+  @apply m-0;
+
+  line-height: 4rem;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+form input[type="number"]::-webkit-outer-spin-button,
+form input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+form input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 @tailwind components;
