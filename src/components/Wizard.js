@@ -85,9 +85,9 @@ Wizard.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   showInputPreview: PropTypes.bool,
   showPrevious: PropTypes.bool,
-  previousText: PropTypes.string,
-  nextText: PropTypes.string,
-  submitText: PropTypes.string,
+  previousText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  nextText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  submitText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 Wizard.defaultProps = {

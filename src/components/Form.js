@@ -1,6 +1,7 @@
 import React from 'react'
 import { Field } from 'react-final-form'
 import { withTranslation, Trans } from 'react-i18next';
+import { withRouter } from 'react-router-dom'
 
 import Address from './Address'
 import Wizard from './Wizard'
@@ -9,30 +10,42 @@ import { Error, required } from './Error'
 
 import { default as schools } from '../data/schools'
 
+import { default as axios } from 'axios'
+
 // const required = value => (value ? undefined : <Trans>Required</Trans>)
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-const onSubmit = async values => {
-  console.log(schools)
-  await sleep(300)
-  window.alert(JSON.stringify(values, 0, 2))
+const onSubmit = (history) => {
+  return async (values) => {
+    await sleep(300)
+
+    axios
+      .post('/.netlify/functions/form-submit', values)
+      .then(function (response) {
+        // console.log({ history, response })
+        switch (response.data.eligibility) {
+          case 'eligible':
+            history.push('/eligible')
+          break
+          case 'ineligible':
+            history.push('/ineligible')
+          break
+          default:
+            // ?
+          break
+        }
+      })
+      .catch(function (error) {
+        // console.log({ history, error })
+      })
+  }
 }
 
-// const Error = ({ name }) => (
-//   <Field
-//     name={name}
-//     subscribe={{ touched: true, error: true }}
-//     render={({ meta: { touched, error } }) =>
-//       touched && error ? <span className="error">{error}</span> : null
-//     }
-//   />
-// )
-
-const Form = ({ t }) => (
+const Form = ({ t, history }) => (
   <Wizard
     initialValues={{}}
-    onSubmit={onSubmit}
+    onSubmit={onSubmit(history)}
     showInputPreview={false}
     showPrevious={true}
     previousText={<span>« <Trans>Previous</Trans></span>}
@@ -226,4 +239,4 @@ const Form = ({ t }) => (
   </Wizard>
 )
 
-export default withTranslation()(Form)
+export default withTranslation()(withRouter(Form))

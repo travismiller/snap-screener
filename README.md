@@ -25,12 +25,19 @@ $ yarn build
 #### Local Serve
 
 ```console
-❯ node_modules/.bin/http-server build
-Starting up http-server, serving build
-Available on:
-  http://127.0.0.1:8080
-  http://0.0.0.0:8080
-Hit CTRL-C to stop the server
+$ node_modules/.bin/serve build
+…
+   ┌────────────────────────────────────────────────┐
+   │                                                │
+   │   Serving!                                     │
+   │                                                │
+   │   - Local:            http://localhost:5000    │
+   │   - On Your Network:  http://10.0.1.154:5000   │
+   │                                                │
+   │   Copied local address to clipboard!           │
+   │                                                │
+   └────────────────────────────────────────────────┘
+
 ```
 
 ## Software
