@@ -11,15 +11,13 @@
 ### Development
 
 ```console
-$ cd snap-screener-form
 $ yarn install
-$ yarn start
+$ node_modules/.bin/netlify dev
 ```
 
 ### Build
 
 ```console
-$ cd snap-screener-form
 $ yarn install
 $ yarn build
 ```
@@ -27,8 +25,12 @@ $ yarn build
 #### Local Serve
 
 ```console
-$ PUBLIC=snap-screener-form/build bin/serve
-Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
+❯ node_modules/.bin/http-server build
+Starting up http-server, serving build
+Available on:
+  http://127.0.0.1:8080
+  http://0.0.0.0:8080
+Hit CTRL-C to stop the server
 ```
 
 ## Software
@@ -37,7 +39,6 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 
 - node v10.16.3
 - yarn
-- Python *(for local serving build)*
 
 ### Primary Dependencies
 
