@@ -3,7 +3,7 @@
 - [Hunger Free Oklahoma](https://hungerfreeok.org/)
 - [Tulsa Public Schools](https://www.tulsaschools.org/)
 - [Oklahoma Department of Human Services](http://www.okdhs.org/)
-- [Spark Tulsa](https://www.sparktulsa.com/)
+- [Spark Collaborative](https://creativespark.group/)
 - [Underdog Systems](https://underdog.systems/)
 
 ## Operation
