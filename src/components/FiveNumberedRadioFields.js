@@ -2,7 +2,7 @@ import React from 'react'
 import NumberedRadioField from './NumberedRadioField'
 
 const FiveNumberedRadioFields = (props) => (
-  <div className="flex flex-wrap justify-center">
+  <div className="flex flex-wrap">
     <div className="flex-no-wrap">
       <NumberedRadioField {...props} value="1" />
       <NumberedRadioField {...props} value="2" />
@@ -10,7 +10,7 @@ const FiveNumberedRadioFields = (props) => (
     </div>
     <div className="flex-no-wrap">
       <NumberedRadioField {...props} value="4" />
-      <NumberedRadioField {...props} value="5+" />
+      <NumberedRadioField {...props} value="5+" label="more" className="more" />
     </div>
   </div>
 )
