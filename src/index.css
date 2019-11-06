@@ -773,10 +773,10 @@ aside .btn {
   text-align: center;
 }
 
-aside a {
-  text-decoration: none;
-  color: #fff;
-}
+/* aside a {
+  @apply no-underline;
+  @apply text-white;
+} */
 
 @media (min-width: 1024px) {
   aside .btn {
@@ -965,6 +965,13 @@ form input[type="number"] {
   margin-top: 1rem;
   margin-bottom: 1rem;
   height: 6rem;
+}
+
+.light-blue-page-content {
+  margin: 2rem;
+  padding: 2rem;
+  padding-top: 0;
+  background-color: #dbe1f2;
 }
 
 .container {

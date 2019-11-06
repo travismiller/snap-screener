@@ -71,8 +71,8 @@
     "How many children <1>under the age of 18</1> live in your home?":
     "~How many children <1>under the age of 18</1> live in your home?~",
 
-    "Please select the school your child attends:":
-    "~Please select the school your child attends:~",
+    "Please select a school you are associated with:":
+    "~Please select a school you are associated with:~",
 
     "Next": "Próximo",
     "Previous": "Anterior",
@@ -124,8 +124,11 @@
     "Based on the information you provided you and your family may not be eligible to receive SNAP benefits. Please know there are additional resources available to assist you and your family.":
     "~Based on the information you provided you and your family may not be eligible to receive SNAP benefits. Please know there are additional resources available to assist you and your family.~",
 
-    "You will be contacted by a school staff member within three business days to assist you with additional resources.":
-    "~You will be contacted by a school staff member within three business days to assist you with additional resources.~",
+    "A school staff member will contact you within 3-5 business days to provide you with food assistance resources.":
+    "~A school staff member will contact you within 3-5 business days to provide you with food assistance resources.~",
+
+    "For immediate community resources <1>click here</1>.":
+    "~For immediate community resources <1>click here</1>.~",
 
     "Additional Resources":
     "~Additional Resources~"

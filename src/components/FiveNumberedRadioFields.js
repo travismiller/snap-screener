@@ -1,22 +1,29 @@
 import React from 'react'
 import NumberedRadioField from './NumberedRadioField'
+import propTypes from 'prop-types'
 
-const FiveNumberedRadioFields = (props) => (
+const FiveNumberedRadioFields = ({startIndex, ...props}) => (
   <div className="flex flex-wrap">
     <div className="flex-no-wrap">
-      <NumberedRadioField {...props} value="1" />
-      <NumberedRadioField {...props} value="2" />
-      <NumberedRadioField {...props} value="3" />
+      <NumberedRadioField {...props} value={(startIndex + 0) + ''} />
+      <NumberedRadioField {...props} value={(startIndex + 1) + ''} />
+      <NumberedRadioField {...props} value={(startIndex + 2) + ''} />
     </div>
     <div className="flex-no-wrap">
-      <NumberedRadioField {...props} value="4" />
-      <NumberedRadioField {...props} value="5+" label="more" className="more" />
+      <NumberedRadioField {...props} value={(startIndex + 3) + ''} />
+      <NumberedRadioField {...props} value={(startIndex + 4) + '+'} label="more" className="more" />
     </div>
   </div>
 )
 
-FiveNumberedRadioFields.propTypes = NumberedRadioField.propTypes
+FiveNumberedRadioFields.propTypes = {
+  startIndex: propTypes.number,
+  ...NumberedRadioField.propTypes
+}
 
-FiveNumberedRadioFields.defaultProps = NumberedRadioField.defaultProps
+FiveNumberedRadioFields.defaultProps = {
+  startIndex: 0,
+  ...NumberedRadioField.defaultProps
+}
 
 export default FiveNumberedRadioFields

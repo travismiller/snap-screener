@@ -81,35 +81,35 @@ const Form = ({ t, history }) => (
       </div>
 
       <div className="px-4">
-        <p>
-          <div className="text-xl leading-tight"><Trans>How many adults <b>18 and over</b> live in your home? <small className="whitespace-no-wrap text-xs">Including you.</small></Trans></div>
-
-          <FiveNumberedRadioFields name="howManyAdults" validate={required} />
-
-          <div>
-            <Error name="howManyAdults" />
-          </div>
-        </p>
-
-        <p>
-          <div className="text-xl leading-tight"><Trans>How many adults <b>over the age of 60</b> live in your home?</Trans></div>
-
-          <FiveNumberedRadioFields name="howManyAdultsOver60" validate={required} />
-
-          <div>
-            <Error name="howManyAdultsOver60" />
-          </div>
-        </p>
-
-        <p>
+        <div className="my-4">
           <div className="text-xl leading-tight"><Trans>How many children <b>under the age of 18</b> live in your home?</Trans></div>
 
-          <FiveNumberedRadioFields name="howManyChildrenUnder18" validate={required} />
+          <FiveNumberedRadioFields name="howManyChildrenUnder18" validate={required} startIndex={1} />
 
           <div>
             <Error name="howManyChildrenUnder18" />
           </div>
-        </p>
+        </div>
+
+        <div className="my-4">
+          <div className="text-xl leading-tight"><Trans>How many adults <b>18 and over</b> live in your home? <small className="whitespace-no-wrap text-xs">Including you.</small></Trans></div>
+
+          <FiveNumberedRadioFields name="howManyAdults" validate={required} startIndex={1} />
+
+          <div>
+            <Error name="howManyAdults" />
+          </div>
+        </div>
+
+        <div className="my-4">
+          <div className="text-xl leading-tight"><Trans>How many adults <b>over the age of 60</b> live in your home?</Trans></div>
+
+          <FiveNumberedRadioFields name="howManyAdultsOver60" validate={required} startIndex={0} />
+
+          <div>
+            <Error name="howManyAdultsOver60" />
+          </div>
+        </div>
       </div>
 
     </Wizard.Page>
@@ -190,7 +190,7 @@ const Form = ({ t, history }) => (
       <div className="flex my-4">
         <div className="flex-1">
           <h2>
-            <Trans>Please select the school your child attends:</Trans>
+            <Trans>Please select a school you are associated with:</Trans>
           </h2>
         </div>
         <div className="flex-shrink"><img alt="" src={iconPhone} className="h-24" /></div>

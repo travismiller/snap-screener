@@ -182,10 +182,10 @@ aside .btn {
   @apply mt-8;
   @apply text-center;
 }
-aside a {
+/* aside a {
   @apply no-underline;
   @apply text-white;
-}
+} */
 
 @screen lg {
   aside .btn {
@@ -373,6 +373,14 @@ form input[type="number"] {
   @apply mx-auto;
   @apply my-4;
   @apply h-24;
+}
+
+.light-blue-page-content {
+  @apply m-8;
+  @apply p-8;
+  @apply pt-0;
+
+  background-color: #dbe1f2;
 }
 
 @tailwind components;
