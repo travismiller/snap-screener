@@ -6,7 +6,15 @@ import { withRouter } from 'react-router-dom'
 import Address from './Address'
 import Wizard from './Wizard'
 import FiveNumberedRadioFields from './FiveNumberedRadioFields'
+import SelectField from './SelectField'
 import { Error, required } from './Error'
+
+import iconConnect from '../img/icons/connect.svg'
+import iconFamily from '../img/icons/family.svg'
+import iconFood from '../img/icons/food.svg'
+import iconPhone from '../img/icons/phone.svg'
+import iconArrowLeft from '../img/icons/arrow-left.svg'
+import iconArrowRight from '../img/icons/arrow-right.svg'
 
 import { default as schools } from '../data/schools'
 
@@ -48,187 +56,156 @@ const Form = ({ t, history }) => (
     onSubmit={onSubmit(history)}
     showInputPreview={false}
     showPrevious={true}
-    previousText={<span>« <Trans>Previous</Trans></span>}
-    nextText={<span><Trans>Next</Trans></span>}
-    submitText={<Trans>Submit</Trans>}
-    >
-    <Wizard.Page>
-      <div>
-        <h2><Trans>Tell us some information about the members of your family.</Trans></h2>
-        <p>
-          <label><Trans>Who is the head of your household?</Trans></label>
-        </p>
-        <div>
-          <Field
-            className="text-center"
-            name="hoh.name"
-            component="input"
-            type="text"
-            validate={required}
-            autoFocus
-          />
+    previousText={
+      <div className="flex">
+        <div className="flex-shrink">
+          <img alt="" src={iconArrowLeft} className="inline-block h-8 -mt-1 -ml-2" />
         </div>
-        <Error name="hoh.name" />
+        <div className="flex-grow"><Trans>Previous</Trans></div>
       </div>
-    </Wizard.Page>
-
+    }
+    nextText={
+      <div className="flex">
+        <div className="flex-grow"><Trans>Next</Trans></div>
+        <div className="flex-shrink">
+          <img alt="" src={iconArrowRight} className="inline-block h-8 -mt-1 -mr-2" />
+        </div>
+      </div>
+    }
+    submitText={<span><Trans>Submit</Trans> <img alt="" src={iconArrowRight} className="icon right" /></span>}
+  >
     <Wizard.Page>
-      <div>
-        <h2><Trans>Does the head of household have a Social Security Number?</Trans></h2>
+      <div className="flex my-4">
+        <h2 className="flex-1"><Trans>Tell us about your household size.</Trans></h2>
+        <div className="flex-shrink"><img alt="" src={iconFamily} className="h-24" /></div>
+      </div>
 
-        <div className="pretty p-default p-round">
-          <Field
-            name="hoh.has_ssn"
-            component="input"
-            type="radio"
-            value="yes"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>Yes</Trans></label>
+      <div className="px-4">
+        <div className="my-4">
+          <div className="text-xl leading-tight"><Trans>How many children <b>under the age of 18</b> live in your home?</Trans></div>
+
+          <FiveNumberedRadioFields name="howManyChildrenUnder18" validate={required} startIndex={1} />
+
+          <div>
+            <Error name="howManyChildrenUnder18" />
           </div>
         </div>
 
-        <div className="pretty p-default p-round">
-          <Field
-            name="hoh.has_ssn"
-            component="input"
-            type="radio"
-            value="no"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>No</Trans></label>
+        <div className="my-4">
+          <div className="text-xl leading-tight"><Trans>How many adults <b>18 and over</b> live in your home? <small className="whitespace-no-wrap text-xs">Including you.</small></Trans></div>
+
+          <FiveNumberedRadioFields name="howManyAdults" validate={required} startIndex={1} />
+
+          <div>
+            <Error name="howManyAdults" />
           </div>
         </div>
 
-        <div className="pretty p-default p-round">
-          <Field
-            name="hoh.has_ssn"
-            component="input"
-            type="radio"
-            value="decline"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>I prefer not to answer</Trans></label>
+        <div className="my-4">
+          <div className="text-xl leading-tight"><Trans>How many adults <b>over the age of 60</b> live in your home?</Trans></div>
+
+          <FiveNumberedRadioFields name="howManyAdultsOver60" validate={required} startIndex={0} />
+
+          <div>
+            <Error name="howManyAdultsOver60" />
           </div>
         </div>
-
-        <p>
-          <Error name="hoh.has_ssn" />
-        </p>
       </div>
+
     </Wizard.Page>
 
     <Wizard.Page>
-      <div>
-        <h2><Trans>What is your household income?</Trans></h2>
-
-        <div>
-          $<Field
-            name="income.amount"
-            component="input"
-            type="number"
-            className="text-right w-16"
-            format={value => (value ? value.replace(/[^\d]/g, '') : '')}
-            pattern="\d*"
-            step="1"
-            validate={required}
-            autoFocus
-          />.00
-          <span className="mx-4">{' '}/{' '}</span>
-          <div className="inline-block">
-            <div className="relative">
-              <Field
-                name="income.period"
-                component="select"
-                className="w-32"
-                validate={required}
-              >
-                <option value=""></option>
-                <option value="yearly">{t('Year')}</option>
-                <option value="monthly">{t('Month')}</option>
-                <option value="weekly">{t('Week')}</option>
-                <option value="2-weeks">{t('2 weeks')}</option>
-              </Field>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-              </div>
-            </div>
-          </div>
+      <div className="flex my-4">
+        <div className="flex-1">
+          <h2>
+            <Trans>What is your household income?</Trans>
+          </h2>
+          <p>
+            <Trans>
+              To find out if you’re eligible for food assistance, we need to know about your
+              household income. Let us know the total income you receive from your job, or if you’re
+              self-employed, or any income from other benefits such as Social Security, TANF, WIC,
+              or any other sources. For example, you can indicate that you receive $200 per week. Or
+              $800 per month.
+            </Trans>
+          </p>
         </div>
-
-        <p>
-          <Error name="income.amount" />
-          <Error name="income.period" />
-        </p>
+        <div className="flex-shrink"><img alt="" src={iconFamily} className="h-24" /></div>
       </div>
-    </Wizard.Page>
 
-    <Wizard.Page>
-      <div>
-        <h2><Trans>How many adults live in your home? <small>(total adults in the home 18+ including you)</small></Trans></h2>
-
-        <FiveNumberedRadioFields name="howManyAdults" validate={required} />
-
-        <p>
-          <Error name="howManyAdults" />
-        </p>
-      </div>
-    </Wizard.Page>
-
-    <Wizard.Page>
-      <div>
-        <h2><Trans>How many adults <u>over the age of 60</u> live in your home?</Trans></h2>
-
-        <FiveNumberedRadioFields name="howManyAdultsOver60" validate={required} />
-
-        <p>
-          <Error name="howManyAdultsOver60" />
-        </p>
-      </div>
-    </Wizard.Page>
-
-    <Wizard.Page>
-      <div>
-        <h2><Trans>How many children <u>under the age of 18</u> live in your home?</Trans></h2>
-
-        <FiveNumberedRadioFields name="howManyChildrenUnder18" validate={required} />
-
-        <p>
-          <Error name="howManyChildrenUnder18" />
-        </p>
-      </div>
-    </Wizard.Page>
-
-    <Wizard.Page>
-      <div>
-        <h2><Trans>Let us know how we can get in touch with you.</Trans></h2>
-
-        <Address name="address" />
-      </div>
-    </Wizard.Page>
-
-    <Wizard.Page>
-      <div>
-        <h2><Trans>Please select the school your child attends:</Trans></h2>
-
-        <div className="inline-block">
+      <div className="flex">
+        <div className="">
           <div className="relative">
-            <Field
-              name="childAttendsSchool"
-              component="select"
-              className="w-64"
+            ${' '}<Field
+              name="income.amount"
+              component="input"
+              type="number"
+              className="text-right w-16 h-8"
+              format={value => (value ? value.replace(/[^\d]/g, '') : '')}
+              pattern="\d*"
+              step="1"
               validate={required}
-            >
-              <option key="" value=""></option>
-              {schools.map((x, i) => <option key={x} value={x}>{x}</option> )}
-            </Field>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center">
-              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
+              autoFocus
+            />{' '}.00
+            <span className="mx-4">{' '}/{' '}</span>
           </div>
+          <div>
+            <Error name="income.amount" />
+          </div>
+        </div>
+        <div className="">
+          <SelectField
+            name="income.period"
+            component="select"
+            className="w-32 h-8"
+            validate={required}
+          >
+            <option value=""></option>
+            <option value="yearly">{t('Year')}</option>
+            <option value="monthly">{t('Month')}</option>
+            <option value="weekly">{t('Week')}</option>
+            <option value="2-weeks">{t('2 weeks')}</option>
+          </SelectField>
+          <div>
+            <Error name="income.period" />
+          </div>
+        </div>
+      </div>
+    </Wizard.Page>
+
+    <Wizard.Page>
+      <div className="flex my-4">
+        <div className="flex-1">
+          <h2>
+            <Trans>Let us know how we can get in touch with you.</Trans>
+          </h2>
+        </div>
+        <div className="flex-shrink"><img alt="" src={iconPhone} className="h-24" /></div>
+      </div>
+
+      <Address name="address" />
+    </Wizard.Page>
+
+    <Wizard.Page>
+      <div className="flex my-4">
+        <div className="flex-1">
+          <h2>
+            <Trans>Please select a school you are associated with:</Trans>
+          </h2>
+        </div>
+        <div className="flex-shrink"><img alt="" src={iconPhone} className="h-24" /></div>
+      </div>
+
+      <div>
+        <div className="inline-block">
+          <SelectField
+            name="childAttendsSchool"
+            className="w-64"
+            validate={required}
+          >
+            <option key="" value=""></option>
+            {schools.map((x, i) => <option key={x} value={x}>{x}</option> )}
+          </SelectField>
         </div>
 
         <p>

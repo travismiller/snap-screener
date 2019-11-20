@@ -6,7 +6,7 @@ import logoImage from '../img/HFO_logo_horiz.png'
 import logoImage_white from '../img/HFO_logo_horiz-white.png'
 import { createBrowserHistory } from 'history'
 
-const Page = (props) => {
+const Page = props => {
   const history = createBrowserHistory()
 
   const logo = () => {
@@ -51,4 +51,5 @@ Page.defaultProps = {
   bodyClass: ''
 }
 
-export default Page;
+export { Page }
+export default Page
