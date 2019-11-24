@@ -9,9 +9,7 @@ import FiveNumberedRadioFields from './FiveNumberedRadioFields'
 import SelectField from './SelectField'
 import { Error, required } from './Error'
 
-import iconConnect from '../img/icons/connect.svg'
 import iconFamily from '../img/icons/family.svg'
-import iconFood from '../img/icons/food.svg'
 import iconPhone from '../img/icons/phone.svg'
 import iconArrowLeft from '../img/icons/arrow-left.svg'
 import iconArrowRight from '../img/icons/arrow-right.svg'
@@ -28,8 +26,8 @@ const onSubmit = (history) => {
   return async (values) => {
     await sleep(300)
 
-    axios
-      .post('/.netlify/functions/form-submit', values)
+    // axios.post('/.netlify/functions/form-submit', values)
+    axios.post('/api/form-submit', values)
       .then(function (response) {
         // console.log({ history, response })
         switch (response.data.eligibility) {
