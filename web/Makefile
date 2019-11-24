@@ -7,6 +7,7 @@ node_modules:
 dev: node_modules
 	node_modules/.bin/netlify dev
 
+.PHONY: build
 build: node_modules
 	yarn build
 
