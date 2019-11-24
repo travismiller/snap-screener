@@ -1,16 +1,16 @@
 {
   "translation": {
     "Address (include apt # if applicable)":
-    "~Address (include apt # if applicable)~",
+    "Dirección (incluyendo # de apt, si es aplicable)",
 
     "City":
-    "~City~",
+    "Ciudad",
 
     "State":
-    "~State~",
+    "Estado",
 
     "Phone Number":
-    "~Phone Number~",
+    "Número de teléfono",
 
     "Email Address":
     "~Email Address~",
