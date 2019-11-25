@@ -17,15 +17,20 @@ use App\Serde;
 $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
-function send_email(Form $form, Serde $serde) {
+function send_email(Form $form, bool $eligible, Serde $serde) {
     $json = $serde->serialize($form, 'json', [JsonEncode::OPTIONS => JSON_PRETTY_PRINT]);
 
     $mail = new Message;
     $mail->setFrom('John <john@example.com>')
         ->addTo('peter@example.com')
         ->addTo('jack@example.com')
-        ->setSubject('SNAP Screener Form Submitted')
-        ->setBody("A submission has been recieved from the SNAP Screener Form\n\n---\n\nRaw Input:\n$json");
+        ->setSubject('SNAP Screener Form Submission [' . ($eligible ? 'Eligible' : 'Ineligible') . ']')
+        ->setBody(implode("\n\n", [
+            "A submission has been recieved from the SNAP Screener Form",
+            "Eligible: " . ($eligible ? 'Yes' : 'No'),
+            "---",
+            "Raw Input:\n$json",
+        ]));
 
     $mailer = new SmtpMailer([
         'host' => getenv('MAIL_HOST'),
@@ -68,12 +73,13 @@ $app->post('/form-submit', function (
     $jsonData = $request->getBody();
 
     $form = $serde->deserialize($jsonData, Form::class, 'json');
-    $eligibility = $form->eligible() ? 'eligible' : 'ineligible';
+    $eligible = $form->eligible();
+    $eligibility = $eligible ? 'eligible' : 'ineligible';
     $output = json_encode(compact('eligibility'));
 
     $response->getBody()->write($output);
 
-    send_email($form, $serde);
+    send_email($form, $eligible, $serde);
 
     return $response;
 });

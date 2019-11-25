@@ -15,9 +15,13 @@ class Formula {
     }
 
     public function calculate_limit(int $persons) {
+        if (array_key_exists($persons, $this->table)) {
+            return $this->table[$persons];
+        }
+
         $keys = array_keys($this->table);
         $k = max($keys);
-        $v = $table[$k];
+        $v = $this->table[$k];
 
         return $v + (($persons - $k) * $this->add);
     }

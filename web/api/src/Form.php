@@ -55,7 +55,7 @@ class Form {
                  + $this->howManyAdults
                  + $this->howManyAdultsOver60;
 
-        $formula = $adultsOver60 > 0 ? $this->table_3() : $this->table_1();
+        $formula = ($adultsOver60 > 0) ? $this->table_3() : $this->table_1();
 
         $limit = $formula->calculate_limit($persons);
 
