@@ -55,21 +55,11 @@ class Form {
                  + $this->howManyAdults
                  + $this->howManyAdultsOver60;
 
-        $table = $this->table($this->howManyAdultsOver60);
+        $formula = $adultsOver60 > 0 ? $this->table_3() : $this->table_1();
 
-        if (!array_key_exists($persons, $table)) {
-            return false;
-        }
+        $limit = $formula->calculate_limit($persons);
 
-        return $table[$persons] >= $monthly_income;
-    }
-
-    private function table($adultsOver60) {
-        if ($adultsOver60 > 0) {
-            return $this->table_3();
-        } else {
-            return $this->table_1();
-        }
+        return $limit >= $monthly_income;
     }
 
     /**
@@ -79,10 +69,11 @@ class Form {
      * person over eight, add $479 to the maximum gross income ($4,705) for eight persons. Refer
      * to SNAP policy located at OAC 340:50-9-1 (b)(1).
      *
-     * @return array
+     * @return Formula
      */
     private function table_1() {
-        return [
+        $add = 479;
+        $table = [
             0 => 0,
             1 => 1354,
             2 => 1832,
@@ -93,6 +84,8 @@ class Form {
             7 => 4227,
             8 => 4705,
         ];
+
+        return new Formula($add, $table);
     }
 
     /**
@@ -114,10 +107,11 @@ class Form {
      * Table II’s maximum net income for a 1 or 2 person household. Refer to
      * SNAP policy located at OAC 340:50-5-1(5).
      *
-     * @return array
+     * @return Formula
      */
     private function table_3() {
-        return [
+        $add = 608;
+        $table = [
             0 => 0,
             1 => 1718,
             2 => 2326,
@@ -128,5 +122,7 @@ class Form {
             7 => 5364,
             8 => 5972,
         ];
+
+        return new Formula($add, $table);
     }
 }
