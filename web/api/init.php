@@ -14,9 +14,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncode;
 use App\Form;
 use App\Serde;
 
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
-
 function send_email(Form $form, bool $eligible, Serde $serde) {
     $json = $serde->serialize($form, 'json', [JsonEncode::OPTIONS => JSON_PRETTY_PRINT]);
 
