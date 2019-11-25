@@ -1,15 +1,15 @@
 <?php
 
 use DI\Container;
+use Nette\Mail\Message;
+use Nette\Mail\SendmailMailer;
+use Nette\Mail\SmtpMailer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Factory\AppFactory;
-
-use Nette\Mail\Message;
-use Nette\Mail\SendmailMailer;
-use Nette\Mail\SmtpMailer;
+use Symfony\Component\Serializer\Encoder\JsonEncode;
 
 use App\Form;
 use App\Serde;
@@ -17,13 +17,15 @@ use App\Serde;
 $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
-function send_email(Form $form) {
+function send_email(Form $form, Serde $serde) {
+    $json = $serde->serialize($form, 'json', [JsonEncode::OPTIONS => JSON_PRETTY_PRINT]);
+
     $mail = new Message;
     $mail->setFrom('John <john@example.com>')
         ->addTo('peter@example.com')
         ->addTo('jack@example.com')
-        ->setSubject('Order Confirmation')
-        ->setBody("Hello, Your order has been accepted.");
+        ->setSubject('SNAP Screener Form Submitted')
+        ->setBody("A submission has been recieved from the SNAP Screener Form\n\n---\n\nRaw Input:\n$json");
 
     $mailer = new SmtpMailer([
         'host' => getenv('MAIL_HOST'),
@@ -71,8 +73,7 @@ $app->post('/form-submit', function (
 
     $response->getBody()->write($output);
 
-    // TODO: send email
-    send_email($form);
+    send_email($form, $serde);
 
     return $response;
 });
