@@ -4,6 +4,7 @@ import { withTranslation, Trans } from 'react-i18next';
 import { withRouter } from 'react-router-dom'
 
 import Address from './Address'
+import Contact from './Contact'
 import Wizard from './Wizard'
 import FiveNumberedRadioFields from './FiveNumberedRadioFields'
 import SelectField from './SelectField'
@@ -186,6 +187,8 @@ const Form = ({ t, history }) => (
       </div>
 
       <Address name="address" />
+
+      <Contact name="contact" />
     </Wizard.Page>
 
     <Wizard.Page>

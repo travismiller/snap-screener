@@ -252,12 +252,12 @@ form textarea {
   border-color: #006FA6;
 }
 
-.address {
+.address, .contact {
   @apply mx-auto;
   @apply max-w-xl;
 }
 
-.address label {
+.address label, .contact label {
   @apply mt-0;
   @apply ml-0;
 }

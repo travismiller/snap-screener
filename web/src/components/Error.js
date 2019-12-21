@@ -15,3 +15,4 @@ const Error = ({ name }) => (
 )
 
 export { Error, required }
+export default Error
