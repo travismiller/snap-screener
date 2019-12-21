@@ -8,6 +8,16 @@ import { Error, required } from './Error'
 const Contact = ({ name }) => (
   <React.Fragment>
     <div className="contact text-left">
+      <div className="flex flex-col-reverse">
+        <label><Trans>Your first name</Trans> <Error name={`${name}.firstName`} /></label>
+        <Field
+          name={`${name}.firstName`}
+          component="input"
+          type="text"
+          validate={required}
+        />
+      </div>
+
       <div className="my-4">
         <p><Trans>How do you want to be contacted?</Trans> <Error name={`${name}.contactPreference`} /></p>
 
