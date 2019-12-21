@@ -54,7 +54,10 @@ const Form = ({ t, history }) => (
     initialValues={{
       address: {
         state: 'OK',
-      }
+      },
+      contact: {
+        contactMe: 'yes',
+      },
     }}
     onSubmit={onSubmit(history)}
     showInputPreview={false}

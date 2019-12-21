@@ -20,6 +20,9 @@ class Form {
     /** @var Address $address */
     public $address;
 
+    /** @var Contact $contact */
+    public $contact;
+
     /** @var string $childAttendsSchool */
     public $childAttendsSchool;
 
@@ -41,6 +44,10 @@ class Form {
 
     public function setAddress(Address $address) {
         $this->address = $address;
+    }
+
+    public function setContact(Contact $contact) {
+        $this->contact = $contact;
     }
 
     /**
