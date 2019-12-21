@@ -10,15 +10,15 @@ const Page = () => (
       <div className="lg:flex text-left lg:flex-wrap">
         <div className="w-full">
           <img alt="" src={iconConnect} className="float-right m-4 mr-0 w-32 hidden md:inline" />
-          <h1>You may be eligible for food assistance.</h1>
-          <p>OKDHS determines eligibility for SNAP benefits. Based on the income information you provided you are likely eligible to receive SNAP benefits.</p>
+          <h1><Trans>You may be eligible for food assistance.</Trans></h1>
+          <p><Trans>OKDHS determines eligibility for SNAP benefits. Based on the income information you provided you are likely eligible to receive SNAP benefits.</Trans></p>
         </div>
 
         <div className="lg:w-2/3 lg:pr-16">
 
-          <h2>What happens next:</h2>
+          <h2><Trans>What happens next:</Trans></h2>
 
-          <p>A school staff member will contact you within 3-5 business days to assist you with the SNAP application.</p>
+          <p><Trans>A school staff member will contact you within 3-5 business days to assist you with the SNAP application.</Trans></p>
 
           <ContactInformation />
         </div>

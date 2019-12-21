@@ -1,5 +1,6 @@
 import React from 'react'
-import { default as BasePage } from '../components/Page'
+import { withTranslation } from 'react-i18next'
+import BasePage from '../components/Page'
 import Form from '../components/Form'
 
 const Page = () => (
@@ -8,4 +9,4 @@ const Page = () => (
   </BasePage>
 )
 
-export default Page
+export default withTranslation()(Page)

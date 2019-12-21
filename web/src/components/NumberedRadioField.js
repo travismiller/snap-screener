@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next';
 import { Field } from 'react-final-form'
 
 const NumberedRadioField = ({name, value, label, validate, className}) => {
+  const { t } = useTranslation();
+
   return (
     <div className={('numbered ' + className).trim()}>
       <Field
@@ -13,7 +16,7 @@ const NumberedRadioField = ({name, value, label, validate, className}) => {
         validate={validate}
       />
       <div className="state">
-        <label>{label ? label : value}</label>
+        <label>{t(label ? label : value)}</label>
       </div>
     </div>
   )

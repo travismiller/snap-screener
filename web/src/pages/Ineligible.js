@@ -12,19 +12,15 @@ const Page = () => (
       <div className="flex">
         <article className="text-left">
 
-          <h1>A Facilitator will Contact You</h1>
+          <h1><Trans>A Facilitator will Contact You</Trans></h1>
 
           <p><Trans>A school staff member will contact you within 3-5 business days to provide you with food assistance resources.</Trans></p>
 
           <ContactInformation />
 
-          <h2>Other Resources</h2>
+          <h2><Trans>Other Resources</Trans></h2>
 
           <p><Trans>For immediate community resources <a href="https://csctulsa.org/211eok/">click here</a>.</Trans></p>
-
-          {/* <p>
-            <button className="btn"><Trans>Additional Resources</Trans></button>
-          </p> */}
         </article>
       </div>
     </div>
