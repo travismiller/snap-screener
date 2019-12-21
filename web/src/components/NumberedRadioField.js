@@ -20,7 +20,6 @@ const NumberedRadioField = ({name, value, label, validate, className}) => {
 }
 
 NumberedRadioField.propTypes = {
-  value: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.any,
   label: PropTypes.any,
