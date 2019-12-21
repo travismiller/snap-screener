@@ -6,6 +6,12 @@ use JMS\Serializer\Annotation\Type;
 
 class Contact {
     /**
+     * @var string $firstName
+     * @Type("string")
+     */
+    public $firstName;
+
+    /**
      * @var string $contactMe
      * @Type("string")
      */

@@ -189,9 +189,13 @@ const Form = ({ t, history }) => (
         <div className="flex-shrink"><img alt="" src={iconPhone} className="h-24" /></div>
       </div>
 
-      <Address name="address" />
+      <div className="my-8">
+        <Contact name="contact" />
+      </div>
 
-      <Contact name="contact" />
+      <div className="my-8">
+        <Address name="address" />
+      </div>
     </Wizard.Page>
 
     <Wizard.Page>
