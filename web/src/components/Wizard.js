@@ -4,7 +4,7 @@ import { Form } from 'react-final-form'
 
 export const Wizard = (props) => {
   // state
-  const [page, changePage] = React.useState(0)
+  const [page, changePage] = React.useState(props.startPage)
   const [values, changeValues] = React.useState(props.initialValues || {})
 
   const activePage = () => React.Children.toArray(props.children)[page]
@@ -82,6 +82,7 @@ export const Wizard = (props) => {
 }
 
 Wizard.propTypes = {
+  startPage: PropTypes.number,
   onSubmit: PropTypes.func.isRequired,
   showInputPreview: PropTypes.bool,
   showPrevious: PropTypes.bool,
@@ -91,6 +92,7 @@ Wizard.propTypes = {
 }
 
 Wizard.defaultProps = {
+  startPage: 0,
   showInputPreview: false,
   showPrevious: true,
   previousText: '« Previous',

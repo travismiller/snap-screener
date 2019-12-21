@@ -843,13 +843,13 @@ form textarea {
   border-color: #006FA6;
 }
 
-.address {
+.address, .contact {
   margin-left: auto;
   margin-right: auto;
   max-width: 36rem;
 }
 
-.address label {
+.address label, .contact label {
   margin-top: 0;
   margin-left: 0;
 }

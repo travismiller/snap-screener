@@ -118,69 +118,6 @@ const Address = ({ name }) => (
           </div>
         </div>
       </div>
-
-      <div className="flex flex-col-reverse">
-        <label><Trans>Phone Number</Trans> <Error name={`${name}.phone`} /></label>
-        <Field
-          name={`${name}.phone`}
-          component="input"
-          type="text"
-          validate={required}
-        />
-      </div>
-
-      <div className="flex flex-col-reverse">
-        <label><Trans>Email Address</Trans> <Error name={`${name}.email`} /></label>
-        <Field
-          name={`${name}.email`}
-          component="input"
-          type="email"
-          validate={required}
-        />
-      </div>
-
-      <div>
-        <p><Trans>I prefer to be contacted by: <Error name={`${name}.contactPreference`} /></Trans></p>
-
-        <div className="pretty p-default p-round">
-          <Field
-            name={`${name}.contactPreference`}
-            component="input"
-            type="radio"
-            value="email"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>Email</Trans></label>
-          </div>
-        </div>
-
-        <div className="pretty p-default p-round">
-          <Field
-            name={`${name}.contactPreference`}
-            component="input"
-            type="radio"
-            value="phone"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>Phone</Trans></label>
-          </div>
-        </div>
-
-        <div className="pretty p-default p-round">
-          <Field
-            name={`${name}.contactPreference`}
-            component="input"
-            type="radio"
-            value="sms"
-            validate={required}
-          />
-          <div className="state">
-            <label><Trans>Text Message</Trans></label>
-          </div>
-        </div>
-      </div>
     </div>
   </React.Fragment>
 )
