@@ -27,8 +27,8 @@
     "Text Message":
     "Mensaje de texto",
 
-    "Special thanks to <1>Tulsa Public Schools</1> for their support and partnership on this project. The Supplemental Nutrition Assistance Program (SNAP) is a federal program, administered by the office of the <3>Oklahoma Department of Human Services</3> (OKDHS). For more information about OKDHS, visit <5>okdhs.org</5> or call (877) 751-2972.":
-    "Un agradecimiento especial a las <1>Escuelas Públicas de Tulsa</1> por su apoyo y colaboración en este proyecto. El Programa de Asistencia Nutricional Suplementaria (SNAP) es un programa federal, administrado por la oficina del <3>Departamento de Servicios Humanos de Oklahoma</3> (OKDHS). Para obtener más información sobre OKDHS, visite <5>okdhs.org</5> o llame al (877) 751-2972.",
+    "Special thanks to <1>Tulsa Public Schools</1> for their support and partnership on this project. The Supplemental Nutrition Assistance Program (SNAP) is a federal program, administered by the office of the <3>Oklahoma Department of Human Services</3> (OKDHS). For more information about OKDHS, visit <5>okdhslive.org</5> or call (405) 487-5483.":
+    "Un agradecimiento especial a las <1>Escuelas Públicas de Tulsa</1> por su apoyo y colaboración en este proyecto. El Programa de Asistencia Nutricional Suplementaria (SNAP) es un programa federal, administrado por la oficina del <3>Departamento de Servicios Humanos de Oklahoma</3> (OKDHS). Para obtener más información sobre OKDHS, visite <5>okdhslive.org</5> o llame al (405) 487-5483.",
 
     "Tell us some information about the members of your family.":
     "Cuéntanos algo sobre los miembros de tu familia.",
@@ -97,8 +97,8 @@
     "You will be contacted by a SNAP trained school staff member within three business days to assist you with the SNAP application.":
     "Un miembro del personal se contactar con usted dentro de 3-5 días hábiles para ayudarle con la aplicación de SNAP.",
 
-    "Information you will need when applying for SNAP benefits:":
-    "La información que usted necesitara al aplicar para los beneficios de SNAP:",
+    "You will need the following information when applying for SNAP benefits:":
+    "~La información que usted necesitara al aplicar para los beneficios de SNAP:~",
 
     "All household members: name, date of birth, social security number (if available)":
     "Para todos los miembros de la casa: nombre, fecha de nacimiento, numero de seguro socia (si esta disponible)",
@@ -131,6 +131,17 @@
     "Para recursos comunitarios inmediatos <1>haga clic aquí</1>.~",
 
     "Additional Resources":
-    "Recursos Adicionales"
+    "Recursos Adicionales",
+
+    "For immediate resource assistance <1>Call 211</1>.":
+    "~For immediate resource assistance <1>Call 211</1>.~",
+
+    "You can also contact the <1>Tulsa Health Department WIC Office</1>.":
+    "~You can also contact the <1>Tulsa Health Department WIC Office</1>.~",
+
+    "You can also apply for SNAP benefits online <1>click here</1>.":
+    "~You can also apply for SNAP benefits online <1>click here</1>.~",
+
+    "_": "_"
   }
 }

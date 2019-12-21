@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { withTranslation, Trans } from 'react-i18next'
 import {default as BasePage} from '../components/Page'
 
-import iconConnect from '../img/icons/connect.svg'
 import iconFamily from '../img/icons/family.svg'
 import iconFood from '../img/icons/food.svg'
 import iconPhone from '../img/icons/phone.svg'
@@ -16,7 +15,6 @@ const Page = () => (
         <p><img alt="" src={iconFamily} /><Trans>Tell us some information about the members of your family.</Trans></p>
         <p><img alt="" src={iconPhone} /><Trans>Let us know how we can get in touch with you.</Trans></p>
         <p><img alt="" src={iconFood} /><Trans>Find out what assistance you might qualify for.</Trans></p>
-        <p><img alt="" src={iconConnect} /><Trans>We will connect you with a TPS representative who will help.</Trans></p>
       </div>
       <p className="my-16">
         <Link className="btn" to="/form"><Trans>Get Started</Trans></Link>

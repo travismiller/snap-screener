@@ -24,7 +24,7 @@ const Page = () => (
         </div>
 
         <div className="lg:w-1/3">
-          <h2><Trans>Information you will need when applying for SNAP benefits:</Trans></h2>
+          <h2><Trans>You will need the following information when applying for SNAP benefits:</Trans></h2>
 
           <ul>
             <li><Trans>All household members: name, date of birth, social security number (if available)</Trans></li>
@@ -34,7 +34,9 @@ const Page = () => (
             <li><Trans>Private health insurance information</Trans></li>
           </ul>
 
-          <p>You can also apply for SNAP benefits online <a href="https://www.okdhslive.org/AuthApplicantLogin.aspx">click here</a>.</p>
+          <p><Trans>For immediate resource assistance <a href="tel:211">Call 211</a>.</Trans></p>
+          <p><Trans>You can also contact the <a href="https://www.tulsa-health.org/personal-and-family-health/child-health/wic">Tulsa Health Department WIC Office</a>.</Trans></p>
+          <p><Trans>You can also apply for SNAP benefits online <a href="https://www.okdhslive.org/AuthApplicantLogin.aspx">click here</a>.</Trans></p>
 
           <p>
             <button className="btn"><Trans>Apply Online</Trans></button>

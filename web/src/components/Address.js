@@ -76,7 +76,6 @@ const Address = ({ name }) => (
           name={`${name}.street`}
           component="input"
           type="text"
-          validate={required}
           autoFocus
         />
       </div>
@@ -87,7 +86,6 @@ const Address = ({ name }) => (
           name={`${name}.city`}
           component="input"
           type="text"
-          validate={required}
         />
       </div>
 
