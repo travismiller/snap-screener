@@ -98,7 +98,7 @@
     "Un miembro del personal se contactar con usted dentro de 3-5 días hábiles para ayudarle con la aplicación de SNAP.",
 
     "You will need the following information when applying for SNAP benefits:":
-    "~La información que usted necesitara al aplicar para los beneficios de SNAP:~",
+    "Necesitarás la siguiente información para aplicar por los beneficios de SNAP:",
 
     "All household members: name, date of birth, social security number (if available)":
     "Para todos los miembros de la casa: nombre, fecha de nacimiento, numero de seguro socia (si esta disponible)",
@@ -118,8 +118,8 @@
     "Apply Online":
     "Aplique en línea",
 
-    "You may <1>not</1> be eligible to receive SNAP benefits!":
-    "Es posible que usted no califica para recibir asistencia alimentaria",
+    "You may <1>not</1> be eligible to receive SNAP benefits.":
+    "Es posible que usted no califica para recibir asistencia alimentaria.",
 
     "Based on the information you provided you and your family may not be eligible to receive SNAP benefits. Please know there are additional resources available to assist you and your family.":
     "OKDHS determina la elegibilidad para los beneficios de SNAP. Basado en la información de ingresos que usted proporciones, es probable que no seas elegible para recibir beneficios de SNAP. Hay recursos adicionales disponibles para ayudarlo a usted y a su familia.",
@@ -128,25 +128,25 @@
     "Un miembro del personal se contactar con usted dentro de 3-5 días hábiles para ayudarlo a encontrar recursos de asistencia alimentaria.",
 
     "For immediate community resources <1>click here</1>.":
-    "Para recursos comunitarios inmediatos <1>haga clic aquí</1>.~",
+    "Para ayuda rápida buscando recursos <1>haga clic aquí</1>.~",
 
     "Additional Resources":
     "Recursos Adicionales",
 
     "For immediate resource assistance <1>Call 211</1>.":
-    "~For immediate resource assistance <1>Call 211</1>.~",
+    "Para obtener ayuda en la búsqueda de recursos rápidamente, <1>Llame al numero 211</1>.~",
 
     "You can also contact the <1>Tulsa Health Department WIC Office</1>.":
-    "~You can also contact the <1>Tulsa Health Department WIC Office</1>.~",
+    "También puede comunicarse con la oficina del departamento de salud; <1>Tulsa Health Department WIC Office</1>.~",
 
     "You can also apply for SNAP benefits online <1>click here</1>.":
-    "~You can also apply for SNAP benefits online <1>click here</1>.~",
+    "También puede aplicar por los beneficios de SNAP en el sitio web <1>haga clic aquí</1>.~",
 
     "May we contact you for food assistance opportunities?":
-    "~May we contact you for food assistance opportunities?~",
+    "Tenemos su permiso para contactarlo para oportunidades de asistencia alimentaria?",
 
     "Your first name":
-    "~Your first name~",
+    "Su nombre",
 
     "_": "_"
   }
