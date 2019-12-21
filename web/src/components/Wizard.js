@@ -92,7 +92,7 @@ Wizard.propTypes = {
 }
 
 Wizard.defaultProps = {
-  startPage: 3,
+  startPage: 0,
   showInputPreview: false,
   showPrevious: true,
   previousText: '« Previous',
