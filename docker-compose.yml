@@ -2,14 +2,12 @@ version: '3.7'
 
 services:
   web:
-    build:
-      context: ./web
-      dockerfile: Dockerfile.local
+    image: travismillerdev/snap-screener-web-base:latest
     volumes:
       - ./web/api:/var/www/api
       - ./web/build:/var/www/html
     ports:
-      - 3000:80
+      - 5000:80
 
   mailhog:
     image: mailhog/mailhog

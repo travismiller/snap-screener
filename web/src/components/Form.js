@@ -24,7 +24,9 @@ const onSubmit = (history) => {
   return async (values) => {
     await sleep(300)
 
-    axios.post('/api/form-submit', values)
+    const api_form_submit = process.env.REACT_APP_API_FORM_SUBMIT
+
+    axios.post(api_form_submit, values)
       .then(function (response) {
         switch (response.data.eligibility) {
           case 'eligible':

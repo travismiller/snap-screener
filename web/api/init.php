@@ -50,9 +50,38 @@ $app->addRoutingMiddleware();
 $app->setBasePath('/api');
 
 /**
- * Middleware for applciation/json API only
+ * CORS
+ *
+ * https://www.slimframework.com/docs/v3/cookbook/enable-cors.html
+ */
+$app->options('/{routes:.+}', function (
+    Request $request,
+    Response $response
+) {
+    return $response;
+});
+
+$app->add(function (Request $request, RequestHandler $handler) {
+    $response = $handler->handle($request);
+
+    if (getenv('APP_ENV') === 'development') {
+        $response = $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    }
+
+    return $response;
+});
+
+/**
+ * Middleware for application/json API only
  */
 $app->add(function (Request $request, RequestHandler $handler) {
+    if ($request->getMethod() === 'OPTIONS') {
+        return $handler->handle($request);
+    }
+
     list($contentType) = explode(';', $request->getHeaderLine('Content-Type'));
 
     if (strtolower($contentType) !== 'application/json') {

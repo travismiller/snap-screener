@@ -5,11 +5,11 @@ node_modules:
 	touch node_modules
 
 dev: node_modules
-	node_modules/.bin/netlify dev
+	yarn start
 
-.PHONY: build
 build: node_modules
 	yarn build
+.PHONY: build
 
 serve: build
 	node_modules/.bin/serve build

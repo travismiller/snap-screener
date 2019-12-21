@@ -10,34 +10,21 @@
 
 ### Development
 
-```console
-$ yarn install
-$ node_modules/.bin/netlify dev
+```bash
+# web/.env
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+APP_ENV=development
 ```
 
-### Build
-
-```console
-$ yarn install
-$ yarn build
+```bash
+# web/api/.env
+REACT_APP_API_FORM_SUBMIT='http://localhost:5000/api/form-submit'
 ```
 
-#### Local Serve
-
 ```console
-$ node_modules/.bin/serve build
-…
-   ┌────────────────────────────────────────────────┐
-   │                                                │
-   │   Serving!                                     │
-   │                                                │
-   │   - Local:            http://localhost:5000    │
-   │   - On Your Network:  http://10.0.1.154:5000   │
-   │                                                │
-   │   Copied local address to clipboard!           │
-   │                                                │
-   └────────────────────────────────────────────────┘
-
+$ docker-compose up -d
+$ cd web && yarn start
 ```
 
 ## Software
