@@ -28,22 +28,4 @@ class Address {
      * @Type("string")
      */
     public $zip;
-
-    /**
-     * @var string $phone
-     * @Type("string")
-     */
-    public $phone;
-
-    /**
-     * @var string $email
-     * @Type("string")
-     */
-    public $email;
-
-    /**
-     * @var string $contactPreference
-     * @Type("string")
-     */
-    public $contactPreference;
 }

@@ -75,6 +75,36 @@ const Contact = ({ name }) => (
         </div>
       </Condition>
 
+      <div className="my-4">
+        <p><Trans>May we contact you for food assistance opportunities?</Trans> <Error name={`${name}.contactMe`} /></p>
+
+        <div className="pretty p-default p-round">
+          <Field
+            name={`${name}.contactMe`}
+            component="input"
+            type="radio"
+            value="yes"
+            validate={required}
+          />
+          <div className="state">
+            <label><Trans>Yes</Trans></label>
+          </div>
+        </div>
+
+        <div className="pretty p-default p-round">
+          <Field
+            name={`${name}.contactMe`}
+            component="input"
+            type="radio"
+            value="no"
+            validate={required}
+          />
+          <div className="state">
+            <label><Trans>No</Trans></label>
+          </div>
+        </div>
+      </div>
+
     </div>
   </React.Fragment>
 )
