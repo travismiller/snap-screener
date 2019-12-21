@@ -1,6 +1,6 @@
 import React from 'react'
 import { withTranslation, Trans } from 'react-i18next'
-import { default as BasePage } from '../components/Page'
+import BasePage from '../components/Page'
 import ContactInformation from '../components/ContactInformation'
 import iconConnect from '../img/icons/family.svg'
 
