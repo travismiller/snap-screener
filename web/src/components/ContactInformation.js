@@ -1,5 +1,5 @@
 import React from 'react'
-import { withTranslation, Trans } from 'react-i18next'
+import { withTranslation } from 'react-i18next'
 
 const ContactInformation = withTranslation()(() => (
   <div>
