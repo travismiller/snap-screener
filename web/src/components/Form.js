@@ -50,7 +50,11 @@ const onSubmit = (history) => {
 
 const Form = ({ t, history }) => (
   <Wizard
-    initialValues={{}}
+    initialValues={{
+      address: {
+        state: 'OK',
+      }
+    }}
     onSubmit={onSubmit(history)}
     showInputPreview={false}
     showPrevious={true}
