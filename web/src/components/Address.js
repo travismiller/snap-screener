@@ -76,7 +76,6 @@ const Address = ({ name }) => (
           name={`${name}.street`}
           component="input"
           type="text"
-          autoFocus
         />
       </div>
 

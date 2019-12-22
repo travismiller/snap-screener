@@ -15,6 +15,7 @@ const Contact = ({ name }) => (
           component="input"
           type="text"
           validate={required}
+          autoFocus
         />
       </div>
 

@@ -20,13 +20,22 @@ import axios from 'axios'
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
 
+const apiFormSubmitUrl = () => {
+  const api_form_submit = document.querySelector('meta[name=x-api-form-submit]')
+  const api_form_submit_url = api_form_submit.getAttribute('content')
+
+  if (!api_form_submit_url) {
+    throw new Error('Missing API Form Submit URL')
+  }
+
+  return api_form_submit_url
+}
+
 const onSubmit = (history) => {
   return async (values) => {
     await sleep(300)
 
-    const api_form_submit = process.env.REACT_APP_API_FORM_SUBMIT
-
-    axios.post(api_form_submit, values)
+    axios.post(apiFormSubmitUrl(), values)
       .then(function (response) {
         switch (response.data.eligibility) {
           case 'eligible':
