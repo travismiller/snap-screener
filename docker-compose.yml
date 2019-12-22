@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   web:
-    image: travismillerdev/snap-screener-web-base:latest
+    build: ./web
     volumes:
       - ./web/api:/var/www/api
       - ./web/build:/var/www/html
