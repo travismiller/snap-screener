@@ -14,27 +14,64 @@ use Symfony\Component\Serializer\Encoder\JsonEncode;
 use App\Form;
 use App\Serde;
 
+/**
+ * Load Contacts for School
+ *
+ * @param string $school
+ * @param Serde $serde
+ * @return array
+ */
+function load_contacts($school, Serde $serde) {
+    $json = file_get_contents(__DIR__ . '/data/contacts.json');
+    $data = json_decode($json, $assoc=true);
+
+    if (array_key_exists($school, $data)) {
+        return array_map(function ($contact) use ($serde) {
+             return $serde->deserialize(json_encode($contact), App\SchoolContact::class, 'json');
+        }, $data[$school]);
+    }
+
+    return [];
+}
+
+/**
+ * Send Email Notification
+ *
+ * @param Form $form
+ * @param bool $eligible
+ * @param Serde $serde
+ * @return void
+ */
 function send_email(Form $form, bool $eligible, Serde $serde) {
     $json = $serde->serialize($form, 'json', [JsonEncode::OPTIONS => JSON_PRETTY_PRINT]);
 
     $mail = new Message;
-    $mail->setFrom('John <john@example.com>')
-        ->addTo('peter@example.com')
-        ->addTo('jack@example.com')
-        ->setSubject('SNAP Screener Form Submission [' . ($eligible ? 'Eligible' : 'Ineligible') . ']')
-        ->setBody(implode("\n\n", [
-            "A submission has been recieved from the SNAP Screener Form",
-            "Eligible: " . ($eligible ? 'Yes' : 'No'),
-            "---",
-            "Raw Input:\n$json",
-        ]));
+    $mail->setFrom(getenv('APP_NOTIFY_FROM'));
+
+    $contacts = load_contacts($form->childAttendsSchool, $serde);
+    if ($contacts) {
+        foreach($contacts as $contact) {
+            $mail->addTo($contact->email, "{$contact->firstName} {$contact->lastName}");
+        }
+        $mail->addCc(getenv('APP_NOTIFY_CC'));
+    } else {
+        $mail->addTo(getenv('APP_NOTIFY_CC'));
+    }
+
+    $mail->setSubject('SNAP Screener Form Submission [' . ($eligible ? 'Eligible' : 'Ineligible') . ']');
+    $mail->setBody(implode("\n\n", [
+        "A submission has been recieved from the SNAP Screener Form",
+        "Eligible: " . ($eligible ? 'Yes' : 'No'),
+        "---",
+        "Raw Input:\n$json",
+    ]));
 
     $mailer = new SmtpMailer([
-        'host' => getenv('MAIL_HOST'),
-        'port' => getenv('MAIL_PORT'),
-        'username' => getenv('MAIL_USERNAME'),
-        'password' => getenv('MAIL_PASSWORD'),
-        'secure' => getenv('MAIL_SECURE'),
+        'host' => getenv('APP_MAIL_HOST'),
+        'port' => getenv('APP_MAIL_PORT'),
+        'username' => getenv('APP_MAIL_USERNAME'),
+        'password' => getenv('APP_MAIL_PASSWORD'),
+        'secure' => getenv('APP_MAIL_SECURE'),
     ]);
 
     $mailer->send($mail);

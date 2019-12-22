@@ -11,12 +11,14 @@ function ContactInformation(props) {
 
   return (
     <div>
-      <p>
-        <b className="text-lg">{ `${selectedSchoolContact.firstName} ${selectedSchoolContact.lastName}` }</b><br />
-        {selectedSchoolContact.school}<br />
-        {selectedSchoolContact.phone}<br />
-        <a href={`mailto:${selectedSchoolContact.email}`}>{selectedSchoolContact.email}</a>
-      </p>
+      { selectedSchoolContact.contacts.map((contact, index) => (
+        <p key={index}>
+          <b className="text-lg">{ `${contact.firstName} ${contact.lastName}` }</b><br />
+          {contact.school}<br />
+          {contact.phone}<br />
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </p>
+      ))}
     </div>
   )
 }
