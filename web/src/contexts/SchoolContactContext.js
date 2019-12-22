@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import contacts, { default as schoolContacts } from '../data/contacts'
+import { default as schoolContacts } from '../data/contacts'
 
 const SchoolContactContext = React.createContext({})
 const SchoolContactContextConsumer = SchoolContactContext.Consumer
@@ -8,9 +8,10 @@ function SchoolContactContextProvider(props) {
   const [selectedSchoolContact, setSelectedSchoolContact] = useState(null)
 
   function setSelectedSchoolContactBySchool(school) {
-    const contact = contacts.find(contact => contact.school === school)
+    const contacts = schoolContacts[school]
+    const selectedSchoolContact = {school, contacts}
 
-    return setSelectedSchoolContact(contact)
+    return setSelectedSchoolContact(selectedSchoolContact)
   }
 
   return (
@@ -21,8 +22,7 @@ function SchoolContactContextProvider(props) {
 }
 
 function schoolContactOptions() {
-  return contacts.map(contact => contact.school)
-                 .map(school => <option key={school} value={school}>{school}</option>)
+  return Object.keys(schoolContacts).map(school => <option key={school} value={school}>{school}</option>)
 }
 
 export {

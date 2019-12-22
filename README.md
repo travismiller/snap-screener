@@ -8,13 +8,34 @@
 
 ## Operation
 
+### Envrionment
+
+PHP API Application
+
+- `APP_ENV`: Application environment. (example: `development` or `production`)
+  - `development` used for permissive CORS headers.
+- `APP_NOTIFY_FROM`: **required** (example: `"SNAP Screener (no-reply)" <no-reply@hungerfreeok.org>`)
+- `APP_NOTIFY_CC`: **required** (example: `"Jane Doe" <jane.doe@hungerfreeok.org>`)
+- `APP_MAIL_HOST`: **required** Host server for SMTP delivery
+- `APP_MAIL_PORT`: **required** Host server port for SMTP delivery
+- `APP_MAIL_USERNAME`: Username for SMTP authentication
+- `APP_MAIL_PASSWORD`: Password for SMTP authentication
+- `APP_MAIL_SECURE`: Security setting (example: `tls`)
+  - `tls` used by Heroku/Mailtrap.
+
+React APP
+
+- `REACT_APP_API_FORM_SUBMIT`: **required** API URL for form submission. (example: `/api/form-submit`)
+
 ### Development
 
 ```bash
 # web/.env
-MAIL_HOST=mailhog
-MAIL_PORT=1025
 APP_ENV=development
+APP_MAIL_HOST=mailhog
+APP_MAIL_PORT=1025
+APP_NOTIFY_FROM='"SNAP Screener (no-reply)" <no-reply@hungerfreeok.org>'
+APP_NOTIFY_CC='"Jane Doe" <jane.doe@hungerfreeok.org>'
 ```
 
 ```bash
@@ -25,6 +46,16 @@ REACT_APP_API_FORM_SUBMIT='http://localhost:5000/api/form-submit'
 ```console
 $ docker-compose up -d
 $ cd web && yarn start
+```
+
+### Generate Contacts
+
+Edit `web/data/contacts.csv`
+
+```console
+$ cd web
+$ yarn install
+$ node scripts/generate-contacts.js
 ```
 
 ## Software
